@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sarra/models/user.dart';
 
+import '../widgets/add_data_dialog.dart';
+
 class HomeScreen extends StatelessWidget {
   final User user;
 
@@ -95,22 +97,31 @@ class HomeScreen extends StatelessWidget {
   Widget _buildButtons(BuildContext context) {
     return Column(
       children: [
-        _buildButton(context, 'Add Data', Icons.add, Colors.blue),
+        _buildButton(context, 'Add Data', Icons.add, Colors.blue, () {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) => AddDataDialog(),
+          );
+        }),
         const SizedBox(height: 10),
-        _buildButton(context, 'Sync Data', Icons.sync, Colors.green),
+        _buildButton(context, 'Sync Data', Icons.sync, Colors.green, () {
+          // Handle Sync Data action
+        }),
         const SizedBox(height: 10),
-        _buildButton(context, 'My List', Icons.list, Colors.orange),
+        _buildButton(context, 'My List', Icons.list, Colors.orange, () {
+          // Handle Sync Data action
+        }),
         const SizedBox(height: 10),
-        _buildButton(context, 'Logout', Icons.logout, Colors.red),
+        _buildButton(context, 'Logout', Icons.logout, Colors.red, () {
+          // Handle Sync Data action
+        }),
       ],
     );
   }
 
-  Widget _buildButton(BuildContext context, String label, IconData icon, Color color) {
+  Widget _buildButton(BuildContext context, String label, IconData icon, Color color, VoidCallback onPressed) {
     return ElevatedButton.icon(
-      onPressed: () {
-        // Handle button press
-      },
+      onPressed: onPressed,
       icon: Icon(icon, color: Colors.white),
       label: Text(
         label,
