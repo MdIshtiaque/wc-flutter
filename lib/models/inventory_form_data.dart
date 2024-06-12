@@ -2,6 +2,7 @@ class InventoryFormData {
   String? department;
   String? ngoName;
   String? division;
+  String? range;
   String? district;
   String? developmentBlock;
   String? gramPanchayat;
@@ -16,6 +17,7 @@ class InventoryFormData {
     this.department,
     this.ngoName,
     this.division,
+    this.range,
     this.district,
     this.developmentBlock,
     this.gramPanchayat,
@@ -26,4 +28,5 @@ class InventoryFormData {
     this.waterSourceName,
     this.waterSourceType,
   });
+
 }
